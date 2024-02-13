@@ -41,8 +41,11 @@ class Second extends StatelessWidget {
             toolbarTextStyle: const TextStyle(fontSize: 20)),
         body: Align(
           alignment: Alignment.topLeft,
-          child: ListView(
-            children: myEvents,),
+          child: ListView.builder(
+            itemCount: data.length,
+            itemBuilder: (BuildContext b, int i){
+              return MyEvent(data[i]['title'], data[i]['value']);
+        },),
         )
     );
   }
